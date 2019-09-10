@@ -28,7 +28,7 @@ namespace QueMePongo
         {
             float puntuacion = 0;
             prendas.ForEach(p => puntuacion += p.getCalif());
-            return puntuacion;
+            return puntuacion/ (float)(prendas.Count);
         }
 
         public bool validarAtuendo(Evento even)
