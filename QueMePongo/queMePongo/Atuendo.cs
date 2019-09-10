@@ -14,8 +14,6 @@ namespace QueMePongo
 
         public int id_atuendo { get; set; }
 
-        public int puntuacion { get; set; }
-
         public bool Igual(Atuendo atuendo)
         {
             if (prendas.Count != atuendo.prendas.Count)
@@ -24,6 +22,13 @@ namespace QueMePongo
                 if (!prendas[i].Igual(atuendo.prendas[i]))
                     return false;
             return true;
+        }
+
+        public float getPuntuacion()
+        {
+            float puntuacion = 0;
+            prendas.ForEach(p => puntuacion += p.getCalif());
+            return puntuacion;
         }
 
         public bool validarAtuendo(Evento even)

@@ -106,6 +106,7 @@ namespace QueMePongo
                 }
 
             }
+            sugerencias = sugerencias.OrderBy(s1 => s1.getPuntuacion()).ToList();
             mostrarAtuendos(sugerencias);
             return sugerencias;
         }
@@ -174,6 +175,7 @@ namespace QueMePongo
                 {
                     p.eventos.Add(even);
                     Console.WriteLine("Ha elegido su atuendo Correctamente");
+                    calificarAtuendo(atuendos[opcion]);
                 }
             }
             else
@@ -183,6 +185,20 @@ namespace QueMePongo
             }
 
         }
+
+        public void calificarAtuendo(Atuendo atuendo) // no se verifica datos ingresados ya que proximamente se hara con una interfaz
+        {
+            Console.WriteLine("Desea calificar el atuendo y/n");
+            String str = Console.ReadLine();
+            if (str == "y") {
+                Console.WriteLine("Ingrese puntuacion del 1 al 5");
+                String puntuacion = Console.ReadLine();
+
+                int punt = int.Parse(puntuacion);
+                atuendo.prendas.ForEach(p => p.calificar(punt));
+            }
+        }
+        
 
     }
 

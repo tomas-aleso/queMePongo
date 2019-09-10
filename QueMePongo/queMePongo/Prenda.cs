@@ -26,6 +26,9 @@ namespace QueMePongo
 
         public List<Evento> eventos = new List<Evento>();
 
+        public int calificacion;
+        public int cantCalif;
+
         public Prenda(TipoPrenda tipoP, String tel, String cp, String cs)
         {
             if (cp == cs) throw new ArgumentException("el color principal no puede ser igual que el secundario");
@@ -33,6 +36,19 @@ namespace QueMePongo
             tela = tel;
             colorPrincipal = cp;
             colorSecundario = cs;
+            calificacion = 0;
+            cantCalif = 0;
+        }
+
+        public void calificar(int calif)
+        {
+            calificacion += calif;
+            cantCalif++;
+        }
+
+        public float getCalif()
+        {
+            return (float)calificacion / (float)cantCalif;
         }
 
         public bool Igual(Prenda prenda)
