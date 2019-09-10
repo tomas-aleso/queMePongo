@@ -1,9 +1,10 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "queMePongo", "queMePongo\queMePongo.csproj", "{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{69C5381B-BC3F-46EE-99A0-4084B53C16D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{69C5381B-BC3F-46EE-99A0-4084B53C16D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +12,19 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Debug|anycpu.Build.0 = Debug|anycpu
-		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Release|anycpu.ActiveCfg = Release|anycpu
-		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Release|anycpu.Build.0 = Release|anycpu
+		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Release|anycpu.Build.0 = Release|Any CPU
 		{69C5381B-BC3F-46EE-99A0-4084B53C16D5}.Debug|anycpu.ActiveCfg = Debug|Any CPU
 		{69C5381B-BC3F-46EE-99A0-4084B53C16D5}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{69C5381B-BC3F-46EE-99A0-4084B53C16D5}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{69C5381B-BC3F-46EE-99A0-4084B53C16D5}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1E74CFC-8C94-4827-9C4C-D40BA1559149}
 	EndGlobalSection
 EndGlobal

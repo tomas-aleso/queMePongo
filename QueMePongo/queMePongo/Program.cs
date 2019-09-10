@@ -14,6 +14,7 @@ namespace QueMePongo
             {
                 var cantUsuarios = context.usuarios.ToArray();
                 Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
+                Console.ReadLine();
             }
         }
     }
