@@ -8,7 +8,7 @@ namespace QueMePongo
 {
     class Gratuito : TipoUsuario
     {
-
+        private int tipo = 0;
 
         public override Guardarropa crearGuardarropa(String nombreGuardarropa, Usuario user)
         {

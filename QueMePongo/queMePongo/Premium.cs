@@ -8,6 +8,8 @@ namespace QueMePongo
 {
     public class Premium : TipoUsuario
     {
+        private int tipo = 1;
+
         public override Guardarropa crearGuardarropa(String nombreGuardarropa, Usuario user)
         {
             Guardarropa value = new Guardarropa(user, nombreGuardarropa);

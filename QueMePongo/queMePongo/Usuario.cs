@@ -32,12 +32,20 @@ namespace QueMePongo
 
         public virtual ICollection<Guardarropa> Guardarropas { get; set; }
 
-        public TipoUsuario tipoUsuario;
+        public TipoUsuario tipoUsuario { get; set; }
 
         public Usuario(String user, TipoUsuario tu)
         {
             usuario = user;
             tipoUsuario = tu;
+            tipoDeUsuario = tu.Tipo;
+
+        }
+
+        public void modificarTipo(TipoUsuario tu)
+        {
+            this.tipoUsuario = tu;
+            tipoDeUsuario = tu.Tipo;
         }
 
         public Usuario() { }

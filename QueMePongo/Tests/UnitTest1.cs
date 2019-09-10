@@ -68,8 +68,7 @@ namespace Tests
         {
             Helper sistema = new Helper();
             Usuario user = sistema.crearUsuario("Juan");
-            TipoUsuario premium = new Premium();
-            user.tipoUsuario = premium;
+            sistema.upgradeUsuario(user);
             Assert.AreEqual(user.tipoUsuario.topePrendasPorGuardarropa(), -1);
         }
 
@@ -127,7 +126,7 @@ namespace Tests
             Helper sistema = new Helper();
             Usuario user = sistema.crearUsuario("Juan");
             Usuario user2 = sistema.crearUsuario("Luis");
-            //cambiar tipo de alguno de los usuarios
+            sistema.upgradeUsuario(user);
             Guardarropa guardarropas = user.crearGuardarropa("guardarropasPrueba");
             user.compartirGuardarropa(user2, guardarropas);
         }

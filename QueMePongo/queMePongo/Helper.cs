@@ -14,6 +14,8 @@ namespace QueMePongo
         public List<TipoPrenda> tipoDePrenda = new List<TipoPrenda>();
         public int capacidadMaxGratuito = 200;
         public int capacidadMaxPremium = -1;
+        Gratuito gratuito = new Gratuito();
+        Premium premium = new Premium();
 
         public void eliminarUsuario(String usuario)
         {
@@ -31,11 +33,20 @@ namespace QueMePongo
 
         public Usuario crearUsuario(String nombre)
         {
-            Gratuito user = new Gratuito();
-            Usuario value = new Usuario(nombre, user);
+            Usuario value = new Usuario(nombre, gratuito);
             usuarios.Add(value);
             Console.WriteLine("Usuario creado");
             return value;
+        }
+
+        public void upgradeUsuario(Usuario usr)
+        {
+            usr.modificarTipo(premium);
+        }
+
+        public void downgradeUsuario(Usuario usr)
+        {
+            usr.modificarTipo(gratuito);
         }
 
         public List<TipoPrenda> levantarJSon()
