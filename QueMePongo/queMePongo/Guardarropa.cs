@@ -12,16 +12,18 @@ namespace QueMePongo
     public class Guardarropa
     {
         [Key]
-        [Column("guardarropas")]
+        [Column("id_guardarropa")]
         public int id_guardarropa { get; set; }
 
+        [Column("nombre")]
         public String nombreGuardarropas { get; set; }
 
-        public int id_usuario { get; set; }
+        [Column("id_duenio")]
+        public int id_duenio { get; set; }
 
         Usuario dueño;
 
-        //public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
 
         public List<Prenda> prendas = new List<Prenda>();
 
@@ -33,6 +35,8 @@ namespace QueMePongo
             usuariosCompartidos = null;
             nombreGuardarropas = nombreGuardarropa;
         }
+
+        public Guardarropa() { }
 
         public void crearPrenda(TipoPrenda tipoDePrenda, String tela, String colorPrincipal, String colorSecundario, Usuario user)
         {

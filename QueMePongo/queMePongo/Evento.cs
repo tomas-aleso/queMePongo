@@ -15,22 +15,31 @@ namespace QueMePongo
         [Column("id_evento")]
         public int id_evento { get; set; }//TODO: Avisar que se tiene que agregar este atributo
 
+        [Column("fechanotificacion")]
         public DateTime fechaNotificacion { get; set; }
 
+        [Column("fechadeinicio")]
         public DateTime fechaInicioPrendas { get; set; }
 
+        [Column("fechafinal")]
         public DateTime fechaFinPrendas { get; set; }
 
+        [NotMapped]
         public bool yaSeEjecuto { get; set; }
 
+        [Column("lugar")]
         public String lugar { get; set; }
 
+        [Column("id_atuendo")]
         public int id_atuendo { get; set; }
 
+        [Column("descripcion")]
         public String descripcion { get; set; }
 
+        [Column("id_usuario")]
         public int id_usuario { get; set; }
 
+        [NotMapped]
         public Usuario user { get; set; }
         Atuendo atuendo;
 
@@ -47,6 +56,8 @@ namespace QueMePongo
             nombre = nombre + descript;
             sched.crearSchedulerEvento(nombre, tipoEvento, fechaIni, this);
         }
+
+        public Evento() { }
 
         public void ejecutarEvento()
         {

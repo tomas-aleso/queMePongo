@@ -8,23 +8,39 @@ using System.Threading.Tasks;
 
 namespace QueMePongo
 {
+    [Table("prendas")]
     public class Prenda
     {
+        [Key]
+        [Column("id_prenda")]
         public int id_prenda { get; set; }
 
         public TipoPrenda tipo;
 
+        public Guardarropa guardarropa;
+
+        public Atuendo atuendo;
+
+        [Column("id_tipoprenda")]
         public int tipoPrenda { get; set; }
 
-        public int tela_id { get; set; }
+        [Column("id_tela")]
+        public int id_tela { get; set; }
 
         public String tela;
 
+        [Column("estahabilitada")]
+        public bool estaHabilitada;
+
+        [Column("colorprincipal")]
         public String colorPrincipal { get; set; }
 
+        [Column("colorsecundario")]
         public String colorSecundario { get; set; }
 
         public List<Evento> eventos = new List<Evento>();
+
+        public Prenda() { }
 
         public Prenda(TipoPrenda tipoP, String tel, String cp, String cs)
         {

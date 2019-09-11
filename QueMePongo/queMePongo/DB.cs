@@ -12,6 +12,12 @@ namespace QueMePongo
     {
 
         public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Guardarropa> guardarropas { get; set; }
+        public DbSet<Evento> eventos { get; set; }
+        public DbSet<Prenda> prendas { get; set; }
+        public DbSet<Atuendo> atuendos { get; set; }
+        public DbSet<TipoPrenda> tipoprendas { get; set; }
+        public DbSet<Tela> telas { get; set; }
 
         public DB() : base(nameOrConnectionString: "heroku")
         {
@@ -26,7 +32,7 @@ namespace QueMePongo
 
             base.OnModelCreating(modelBuilder);
 
-            /*modelBuilder.Entity<Usuario>()
+            modelBuilder.Entity<Usuario>()
                 .HasMany(u => u.Guardarropas)
                 .WithMany(g => g.Usuarios)
                 .Map(cs =>
@@ -34,7 +40,7 @@ namespace QueMePongo
                     cs.MapLeftKey("id_usuario");
                     cs.MapRightKey("id_guardarropa");
                     cs.ToTable("guardarropaXusuario");
-                });*/
+                });
 
         }
 

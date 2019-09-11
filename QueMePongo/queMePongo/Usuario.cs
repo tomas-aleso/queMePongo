@@ -24,6 +24,7 @@ namespace QueMePongo
         [Column("tipodeusuario")]
         public int tipoDeUsuario { get; set; }
 
+        [NotMapped]
         public List<Evento> eventosDeUsuario { get; set; }
 
         public List<Guardarropa> guardarropas = new List<Guardarropa>();
@@ -32,6 +33,7 @@ namespace QueMePongo
 
         public virtual ICollection<Guardarropa> Guardarropas { get; set; }
 
+        [NotMapped]
         public TipoUsuario tipoUsuario { get; set; }
 
         public Usuario(String user, TipoUsuario tu)
