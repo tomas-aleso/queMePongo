@@ -15,38 +15,46 @@ namespace QueMePongo
         [Column("id_prenda")]
         public int id_prenda { get; set; }
 
-        public TipoPrenda tipo;
-
-        public Guardarropa guardarropa;
-
-        public Atuendo atuendo;
-
         [Column("id_tipoprenda")]
         public int tipoPrenda { get; set; }
 
         [Column("id_tela")]
         public int id_tela { get; set; }
 
-        public String tela;
-
         [Column("estahabilitada")]
-        public bool estaHabilitada;
+        public bool estaHabilitada { get; set; }
 
         [Column("colorprincipal")]
         public String colorPrincipal { get; set; }
 
         [Column("colorsecundario")]
         public String colorSecundario { get; set; }
+        
+        [Column("calificacion")]
+        public int calificacion { get; set; }
+
+        [Column("cantcalif")]
+        public int cantCalif { get; set; }
 
         public List<Evento> eventos = new List<Evento>();
 
-        public Prenda() { }
-        
-        [Column("calificacion")]
-        public int calificacion;
+        public ICollection<Guardarropa> Guardarropas { get; set; }
 
-        [Column("cantcalif")]
-        public int cantCalif;
+        public ICollection<TipoPrenda> TiposPrendas { get; set; }
+
+        public ICollection<Atuendo> Atuendos { get; set; }
+
+        public Prenda() { }
+
+        public String tela;
+
+        public Tela Tela { get; set; }
+
+        public TipoPrenda tipo;
+
+        public Guardarropa guardarropa;
+
+        public Atuendo atuendo;
 
         public Prenda(TipoPrenda tipoP, String tel, String cp, String cs)
         {
@@ -57,6 +65,7 @@ namespace QueMePongo
             colorSecundario = cs;
             calificacion = 0;
             cantCalif = 0;
+            estaHabilitada = true;
         }
 
         public void calificar(int calif)

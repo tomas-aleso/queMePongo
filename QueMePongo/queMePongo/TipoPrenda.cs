@@ -13,7 +13,7 @@ namespace QueMePongo
     {
         [Key]
         [Column("id_tipoprenda")]
-        public int tipoPrenda_id { get; set; }//TODO: Avisar que falta aclarar que esto es la PK en el DER
+        public int id_tipoPrenda { get; set; }//TODO: Avisar que falta aclarar que esto es la PK en el DER
                                               //TODO: Avisar que se tiene que agregar este atributo
 
         [Column("descripcion")]

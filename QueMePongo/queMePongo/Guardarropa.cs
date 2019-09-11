@@ -21,9 +21,12 @@ namespace QueMePongo
         [Column("id_duenio")]
         public int id_duenio { get; set; }
 
-        Usuario dueño;
+        [NotMapped]
+        public Usuario dueño { get; set; }
 
         public virtual ICollection<Usuario> Usuarios { get; set; }
+
+        public virtual ICollection<Prenda> Prendas { get; set; }
 
         public List<Prenda> prendas = new List<Prenda>();
 
@@ -34,6 +37,7 @@ namespace QueMePongo
             dueño = user;
             usuariosCompartidos = null;
             nombreGuardarropas = nombreGuardarropa;
+            id_duenio = user.id_usuario;
         }
 
         public Guardarropa() { }

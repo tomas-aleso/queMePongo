@@ -41,7 +41,9 @@ namespace QueMePongo
 
         [NotMapped]
         public Usuario user { get; set; }
-        Atuendo atuendo;
+
+        [NotMapped]
+        public Atuendo atuendo { get; set; }
 
         public Evento(String lug, String descript, Usuario u, DateTime fechaIni, DateTime fechaIniPrendas, DateTime fechaFinPrenda, String nombre, int tipoEvento)
         {
@@ -51,6 +53,7 @@ namespace QueMePongo
             fechaNotificacion = fechaIni;
             fechaInicioPrendas = fechaIniPrendas;
             fechaFinPrendas = fechaFinPrenda;
+            id_usuario = u.id_usuario;
             Scheduler sched = Scheduler.getInstance();
             sched.run();
             nombre = nombre + descript;

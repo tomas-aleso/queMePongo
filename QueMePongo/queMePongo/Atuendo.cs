@@ -11,11 +11,13 @@ namespace QueMePongo
     [Table("atuendos")]
     public class Atuendo
     {
-        public List<Prenda> prendas = new List<Prenda>();
-
         [Key]
         [Column("id_atuendo")]
         public int id_atuendo { get; set; }
+
+        public List<Prenda> prendas = new List<Prenda>();
+
+        public ICollection<Prenda> Prendas { get; set; }
 
         public Atuendo() { }
 

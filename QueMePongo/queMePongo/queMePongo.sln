@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "queMePongo", "queMePongo.csproj", "{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{C22954E0-866E-4E22-A1DD-4771C83EE16A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|anycpu = Debug|anycpu
@@ -13,5 +15,9 @@ Global
 		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Debug|anycpu.Build.0 = Debug|anycpu
 		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Release|anycpu.ActiveCfg = Release|anycpu
 		{182CCA78-DB18-4157-8C6D-ADC4ADB21EEC}.Release|anycpu.Build.0 = Release|anycpu
+		{C22954E0-866E-4E22-A1DD-4771C83EE16A}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{C22954E0-866E-4E22-A1DD-4771C83EE16A}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{C22954E0-866E-4E22-A1DD-4771C83EE16A}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{C22954E0-866E-4E22-A1DD-4771C83EE16A}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

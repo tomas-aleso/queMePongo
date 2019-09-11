@@ -18,6 +18,10 @@ namespace QueMePongo
         [Column("descripcion")]
         public string descripcion { get; set; }
 
-        public Tela(){}
+        public Tela(String descrip){
+            descripcion = descrip;
+        }
+
+        public Tela() { }
     }
 }
