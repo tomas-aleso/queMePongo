@@ -17,9 +17,6 @@ namespace QueMePongo
         [Column("id_atuendo")]
         public int id_atuendo { get; set; }
 
-        [Column("puntuacion")]
-        public int puntuacion { get; set; }
-
         public Atuendo() { }
 
         public bool Igual(Atuendo atuendo)
@@ -30,6 +27,13 @@ namespace QueMePongo
                 if (!prendas[i].Igual(atuendo.prendas[i]))
                     return false;
             return true;
+        }
+
+        public float getPuntuacion()
+        {
+            float puntuacion = 0;
+            prendas.ForEach(p => puntuacion += p.getCalif());
+            return puntuacion/ (float)(prendas.Count);
         }
 
         public bool validarAtuendo(Evento even)

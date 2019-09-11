@@ -41,6 +41,12 @@ namespace QueMePongo
         public List<Evento> eventos = new List<Evento>();
 
         public Prenda() { }
+        
+        [Column("calificacion")]
+        public int calificacion;
+
+        [Column("cantcalif")]
+        public int cantCalif;
 
         public Prenda(TipoPrenda tipoP, String tel, String cp, String cs)
         {
@@ -49,6 +55,19 @@ namespace QueMePongo
             tela = tel;
             colorPrincipal = cp;
             colorSecundario = cs;
+            calificacion = 0;
+            cantCalif = 0;
+        }
+
+        public void calificar(int calif)
+        {
+            calificacion += calif;
+            cantCalif++;
+        }
+
+        public float getCalif()
+        {
+            return (float)calificacion / (float)cantCalif;
         }
 
         public bool Igual(Prenda prenda)
