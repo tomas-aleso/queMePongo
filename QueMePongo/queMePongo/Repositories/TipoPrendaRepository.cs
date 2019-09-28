@@ -9,7 +9,7 @@ namespace queMePongo.Repositories
         {
             context.tipoprendas.Add(tipoPrenda);
             context.SaveChanges();
-            Console.WriteLine($"\nTipo de prenda {tipoPrenda} creado!");
+            Console.WriteLine($"\nTipo de prenda {tipoPrenda.id_tipoPrenda} - {tipoPrenda.descripcion} creado!");
         }
 
         public void Update(TipoPrenda tipoPrenda, DB context)

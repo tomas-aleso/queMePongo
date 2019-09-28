@@ -9,7 +9,7 @@ namespace queMePongo.Repositories
         {
             context.guardarropas.Add(guardarropa);
             context.SaveChanges();
-            Console.WriteLine($"\nGuardarropa {guardarropa} creado!");
+            Console.WriteLine($"\nGuardarropa {guardarropa.nombreGuardarropas} creado!");
         }
 
         public void Update(Guardarropa guardarropa, DB context)

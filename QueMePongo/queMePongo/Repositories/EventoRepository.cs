@@ -8,7 +8,7 @@ namespace queMePongo.Repositories
         {
             context.eventos.Add(evento);
             context.SaveChanges();
-            Console.WriteLine($"\nEvento {evento} creado!");
+            Console.WriteLine($"\nEvento {evento.id_evento} - {evento.descripcion} creado!");
         }
 
         public void Update(Evento evento, DB context)

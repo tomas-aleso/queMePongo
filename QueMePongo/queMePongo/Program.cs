@@ -23,7 +23,7 @@ namespace QueMePongo
 
                 //context.limpiarDB();
 
-                Console.WriteLine($"Existen {usuarios.Length} usuario(s).");
+               Console.WriteLine($"Existen {usuarios.Length} usuario(s).");
                 Console.WriteLine($"Existen {guardarropas.Length} guardarropa(s).");
                 Console.WriteLine($"Existen {eventos.Length} evento(s).");
                 Console.WriteLine($"Existen {prendas.Length} prenda(s).");
@@ -41,7 +41,7 @@ namespace QueMePongo
                 //Creo un usuario
                 var usuario1 = new Usuario("usuario1", new Gratuito(), "pass");
                 UsuarioRepo.Insert(usuario1, context);
- 
+
                 //Agrego un usuario con guardarropa
                 var usuario2ConGuardarropa = new Usuario("usuario2", new Gratuito(), "pass");
                 Guardarropa guardarropa = new Guardarropa(usuario2ConGuardarropa, "Guardarropa1");
@@ -85,11 +85,7 @@ namespace QueMePongo
                 evento.id_atuendo = atuendo.id_atuendo;
                 EventoRepo.Insert(evento, context);
 
-                /*
-
-                usuarioParaBorrar = context.usuarios.Single(x => x.usuario == "usuario2");
-                context.usuarios.Remove(usuarioParaBorrar);
-                context.SaveChanges();*/
+                UsuarioRepo.Delete(usuario1.id_usuario, context);
 
             }
         }

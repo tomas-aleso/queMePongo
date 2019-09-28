@@ -13,7 +13,7 @@ namespace QueMePongo
     {
         [Key]
         [Column("id_evento")]
-        public int id_evento { get; set; }//TODO: Avisar que se tiene que agregar este atributo
+        public int id_evento { get; set; }
 
         [Column("fechanotificacion")]
         public DateTime fechaNotificacion { get; set; }

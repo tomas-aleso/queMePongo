@@ -10,7 +10,7 @@ namespace queMePongo.Repositories
         {
             context.usuarios.Add(usuario);
             context.SaveChanges();
-            Console.WriteLine($"\nUsuario {usuario} creado!");
+            Console.WriteLine($"\nUsuario {usuario.usuario} con ID {usuario.id_usuario} creado!");
         }
 
         public void Update(Usuario usuario, DB context)
@@ -23,6 +23,7 @@ namespace queMePongo.Repositories
             var usuarioParaBorrar = context.usuarios.Single(u => u.id_usuario == usuarioId);
             context.usuarios.Remove(usuarioParaBorrar);
             context.SaveChanges();
+            Console.WriteLine($"\nUsuario {usuarioId} eliminado!");
         }
 
     }

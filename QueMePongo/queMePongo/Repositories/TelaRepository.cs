@@ -9,7 +9,7 @@ namespace queMePongo.Repositories
         {
             context.telas.Add(tela);
             context.SaveChanges();
-            Console.WriteLine($"\nTela {tela} creado!");
+            Console.WriteLine($"\nTela {tela.id_tela} - {tela.descripcion} creado!");
         }
 
         public void Update(Tela tela, DB context)

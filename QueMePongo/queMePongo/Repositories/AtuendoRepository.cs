@@ -9,7 +9,7 @@ namespace queMePongo.Repositories
         {
             context.atuendos.Add(atuendo);
             context.SaveChanges();
-            Console.WriteLine($"\nAtuendo {atuendo} creado!");
+            Console.WriteLine($"\nAtuendo {atuendo.id_atuendo} creado!");
         }
 
         public void Update(Atuendo atuendo, DB context)
