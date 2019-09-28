@@ -33,7 +33,7 @@ namespace QueMePongo
 
         public Usuario crearUsuario(String nombre)
         {
-            Usuario value = new Usuario(nombre, gratuito);
+            Usuario value = new Usuario(nombre, gratuito, "contrasenia");
             usuarios.Add(value);
             Console.WriteLine("Usuario creado");
             return value;

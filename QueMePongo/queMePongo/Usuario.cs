@@ -11,6 +11,7 @@ namespace QueMePongo
     [Table("usuarios")]
     public class Usuario
     {
+
         [Key]
         [Column("id_usuario")]
         public int id_usuario { get; set; }
@@ -36,11 +37,12 @@ namespace QueMePongo
         [NotMapped]
         public TipoUsuario tipoUsuario { get; set; }
 
-        public Usuario(String user, TipoUsuario tu)
+        public Usuario(String user, TipoUsuario tu, String pass)
         {
             usuario = user;
             tipoUsuario = tu;
             tipoDeUsuario = tu.Tipo;
+            contrasenia = pass;
 
         }
 
@@ -200,7 +202,6 @@ namespace QueMePongo
                 atuendo.prendas.ForEach(p => p.calificar(punt));
             }
         }
-        
 
     }
 

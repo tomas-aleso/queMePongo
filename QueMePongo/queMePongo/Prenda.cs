@@ -38,11 +38,11 @@ namespace QueMePongo
 
         public List<Evento> eventos = new List<Evento>();
 
-        public ICollection<Guardarropa> Guardarropas { get; set; }
+        //public ICollection<Guardarropa> Guardarropas { get; set; }
 
-        public ICollection<TipoPrenda> TiposPrendas { get; set; }
+        //public ICollection<TipoPrenda> TiposPrendas { get; set; }
 
-        public ICollection<Atuendo> Atuendos { get; set; }
+        //public ICollection<Atuendo> Atuendos { get; set; }
 
         public Prenda() { }
 
@@ -52,9 +52,9 @@ namespace QueMePongo
 
         public TipoPrenda tipo;
 
-        public Guardarropa guardarropa;
+        //public Guardarropa guardarropa { get; set; }
 
-        public Atuendo atuendo;
+        //public Atuendo atuendo { get; set; }
 
         public Prenda(TipoPrenda tipoP, String tel, String cp, String cs)
         {

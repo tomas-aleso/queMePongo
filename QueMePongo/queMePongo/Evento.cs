@@ -66,5 +66,6 @@ namespace QueMePongo
         {
             user.elegirAtuendo(this);
         }
+
     }
 }

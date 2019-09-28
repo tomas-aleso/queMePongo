@@ -35,7 +35,7 @@ namespace QueMePongo
 
             var tipoUsuario = new Gratuito();
 
-            Usuario value = new Usuario(nombre, tipoUsuario);
+            Usuario value = new Usuario(nombre, tipoUsuario, "contrasenia");
             usuarios.Add(value);
             Console.WriteLine("Usuario creado");
             return value;

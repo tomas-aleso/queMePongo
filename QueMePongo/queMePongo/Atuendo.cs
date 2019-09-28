@@ -17,7 +17,7 @@ namespace QueMePongo
 
         public List<Prenda> prendas = new List<Prenda>();
 
-        public ICollection<Prenda> Prendas { get; set; }
+        //public ICollection<Prenda> Prendas { get; set; }
 
         public Atuendo() { }
 
