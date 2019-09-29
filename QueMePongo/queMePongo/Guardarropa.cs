@@ -26,7 +26,7 @@ namespace QueMePongo
 
         public virtual ICollection<Usuario> Usuarios { get; set; }
 
-        //public virtual ICollection<Prenda> Prendas { get; set; }
+        public virtual ICollection<Prenda> Prendas { get; set; }
 
         public List<Prenda> prendas = new List<Prenda>();
 

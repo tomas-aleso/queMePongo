@@ -13,6 +13,13 @@ namespace QueMePongo
             using (var context = new DB())
             {
 
+                var UsuarioRepo = new UsuarioRepository();
+                var GuardarropaRepo = new GuardarropaRepository();
+                var TelaRepo = new TelaRepository();
+                var TipoPrendaRepo = new TipoPrendaRepository();
+                var AtuendoRepo = new AtuendoRepository();
+                var EventoRepo = new EventoRepository();
+
                 var usuarios = context.consultarUsuarios();
                 var guardarropas = context.consultarGuardarropas();
                 var eventos = context.consultarEventos();
@@ -21,22 +28,13 @@ namespace QueMePongo
                 //var tipoprendas = context.consultarTipoPrendas();
                 var telas = context.consultarTelas();
 
-                //context.limpiarDB();
-
-               Console.WriteLine($"Existen {usuarios.Length} usuario(s).");
+                /*Console.WriteLine($"Existen {usuarios.Length} usuario(s).");
                 Console.WriteLine($"Existen {guardarropas.Length} guardarropa(s).");
                 Console.WriteLine($"Existen {eventos.Length} evento(s).");
                 Console.WriteLine($"Existen {prendas.Length} prenda(s).");
                 Console.WriteLine($"Existen {atuendos.Length} atuendo(s).");
-                //Console.WriteLine($"Existen {tipoprendas.Length} tipo(s) de prenda(s).");
-                Console.WriteLine($"Existen {telas.Length} telas(s).");
-
-                var UsuarioRepo = new UsuarioRepository();
-                var GuardarropaRepo = new GuardarropaRepository();
-                var TelaRepo = new TelaRepository();
-                var TipoPrendaRepo = new TipoPrendaRepository();
-                var AtuendoRepo = new AtuendoRepository();
-                var EventoRepo = new EventoRepository();
+                Console.WriteLine($"Existen {tipoprendas.Length} tipo(s) de prenda(s).");
+                Console.WriteLine($"Existen {telas.Length} telas(s).");*/
 
                 //Creo un usuario
                 var usuario1 = new Usuario("usuario1", new Gratuito(), "pass");
