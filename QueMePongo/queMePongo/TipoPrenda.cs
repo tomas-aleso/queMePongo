@@ -29,6 +29,8 @@ namespace QueMePongo
 
         public List<String> tiposDeTelaPosibles = new List<String>();
 
+        public virtual ICollection<Prenda> Prendas { get; set; }
+
         public TipoPrenda() { }
     }
 }

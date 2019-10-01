@@ -21,9 +21,6 @@ namespace QueMePongo
         [Column("id_tela")]
         public int id_tela { get; set; }
 
-        [Column("estahabilitada")]
-        public bool estaHabilitada { get; set; }
-
         [Column("colorprincipal")]
         public String colorPrincipal { get; set; }
 
@@ -67,7 +64,6 @@ namespace QueMePongo
             colorSecundario = cs;
             calificacion = 0;
             cantCalif = 0;
-            estaHabilitada = true;
         }
 
         public void calificar(int calif)
