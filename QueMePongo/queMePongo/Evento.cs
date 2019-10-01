@@ -39,13 +39,16 @@ namespace QueMePongo
         [Column("id_usuario")]
         public int id_usuario { get; set; }
 
+        [Column("tipoEvento")]
+        public tipoEvento { get; set; }
+
         [NotMapped]
         public Usuario user { get; set; }
 
         [NotMapped]
         public Atuendo atuendo { get; set; }
 
-        public Evento(String lug, String descript, Usuario u, DateTime fechaIni, DateTime fechaIniPrendas, DateTime fechaFinPrenda, String nombre, int tipoEvento)
+        public Evento(String lug, String descript, Usuario u, DateTime fechaIni, DateTime fechaIniPrendas, DateTime fechaFinPrenda, String nombre, int tipoEvent)
         {
             lugar = lug;
             descripcion = descript;
@@ -54,10 +57,11 @@ namespace QueMePongo
             fechaInicioPrendas = fechaIniPrendas;
             fechaFinPrendas = fechaFinPrenda;
             id_usuario = u.id_usuario;
+            tipoEvento = tipoEvent;
             Scheduler sched = Scheduler.getInstance();
             sched.run();
             nombre = nombre + descript;
-            sched.crearSchedulerEvento(nombre, tipoEvento, fechaIni, this);
+            sched.crearSchedulerEvento(nombre, tipoEvent, fechaIni, this);
         }
 
         public Evento() { }
