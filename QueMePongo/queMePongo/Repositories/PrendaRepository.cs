@@ -12,11 +12,6 @@ namespace queMePongo.Repositories
             Console.WriteLine($"\nPrenda {prenda.id_prenda} creada!");
         }
 
-        public void Update(Prenda prenda, DB context)
-        {
-
-        }
-
         public void Delete(int prendaId)
         {
 

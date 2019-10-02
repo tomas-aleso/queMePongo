@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using queMePongo.Repositories;
 
 namespace QueMePongo
 {
@@ -56,11 +57,21 @@ namespace QueMePongo
 
         public Guardarropa crearGuardarropa(String nombreGuardarropa)
         {
-            Guardarropa value = tipoUsuario.crearGuardarropa(nombreGuardarropa, this);
-            guardarropas.Add(value);
-            Console.WriteLine("Guardarropas creado");
-            return value;
-
+            DB context = new DB();
+            GuardarropaRepository gr = new GuardarropaRepository();
+            if(gr.existeGuardarropa(nombreGuardarropa,context,id_usuario))
+            {
+                Console.WriteLine("El guardarropas ya existe");
+                return null;
+            }
+            else
+            {
+                Guardarropa value = tipoUsuario.crearGuardarropa(nombreGuardarropa, this);
+                guardarropas.Add(value);
+                gr.Insert(value, context, id_usuario);
+                Console.WriteLine("Guardarropas creado");
+                return value;
+            }
         }
 
         public void eliminarGuardarropa(String nombreGuardarropa)
@@ -71,6 +82,9 @@ namespace QueMePongo
 
                 if (nombreGuardarropa == a.nombreGuardarropas)
                 {
+                    DB context = new DB();
+                    GuardarropaRepository gr = new GuardarropaRepository();
+                    gr.Delete(a.id_guardarropa, context, id_usuario);
                     guardarropas.Remove(a);
                     Console.WriteLine("Guardarropas eliminado");
                     break;
@@ -95,6 +109,11 @@ namespace QueMePongo
         {
             guardarropaCompartido.usuariosCompartidos.Add(this);
             guardarropas.Add(guardarropaCompartido);
+            DB context = new DB();
+            guardarropaXusuarioRepository gur = new guardarropaXusuarioRepository();
+            gur.id_guardarropa = guardarropaCompartido.id_guardarropa;
+            gur.id_usuario = id_usuario;
+            context.guardarropaXusuarioRepositories.Add(gur);
         }
 
         public List<Atuendo> ObtenerSugerencias(Evento even)
@@ -167,6 +186,8 @@ namespace QueMePongo
             List<Atuendo> atuendos = new List<Atuendo>();
             atuendos = this.ObtenerSugerencias(even);
 
+
+            /*
             Console.WriteLine("Indique el numero de sugerencia que quiere seleccionar:");
 
             String sugerenciaElegida = Console.ReadLine();
@@ -186,7 +207,7 @@ namespace QueMePongo
             {
                 Console.WriteLine("El atuendo que eligio ya esta en uso en ese periodo de tiempo, elija otro");
                 this.elegirAtuendo(even);
-            }
+            }*/
 
         }
 

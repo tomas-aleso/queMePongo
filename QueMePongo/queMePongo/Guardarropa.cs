@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Threading.Tasks;
+using queMePongo.Repositories;
 
 namespace QueMePongo
 {
@@ -44,7 +45,6 @@ namespace QueMePongo
 
         public void crearPrenda(TipoPrenda tipoDePrenda, String tela, String colorPrincipal, String colorSecundario, Usuario user)
         {
-
             if (cumpleRequisitos(tipoDePrenda, tela, colorPrincipal, colorSecundario, user))
             {
                 Prenda value = new Prenda(tipoDePrenda, tela, colorPrincipal, colorSecundario);

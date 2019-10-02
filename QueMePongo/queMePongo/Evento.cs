@@ -24,9 +24,6 @@ namespace QueMePongo
         [Column("fechafinal")]
         public DateTime fechaFinPrendas { get; set; }
 
-        [NotMapped]
-        public bool yaSeEjecuto { get; set; }
-
         [Column("lugar")]
         public String lugar { get; set; }
 
@@ -40,7 +37,7 @@ namespace QueMePongo
         public int id_usuario { get; set; }
 
         [Column("tipoEvento")]
-        public tipoEvento { get; set; }
+        public int tipoEvento { get; set; }
 
         [NotMapped]
         public Usuario user { get; set; }

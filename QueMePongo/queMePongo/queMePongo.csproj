@@ -7,7 +7,8 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>queMePongo</RootNamespace>
     <AssemblyName>queMePongo</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,6 +100,18 @@
     <Compile Include="Prenda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="QueMePongo.cs" />
+    <Compile Include="Repositories\AtuendoRepository.cs" />
+    <Compile Include="Repositories\EventoRepository.cs" />
+    <Compile Include="Repositories\GuardarropaRepository.cs" />
+    <Compile Include="Repositories\guardarropaXprendaRepository.cs" />
+    <Compile Include="Repositories\guardarropaXusuarioRepository.cs" />
+    <Compile Include="Repositories\PrendaRepository.cs" />
+    <Compile Include="Repositories\prendaXatuendoRepository.cs" />
+    <Compile Include="Repositories\sugerenciaXeventoRepository.cs" />
+    <Compile Include="Repositories\TelaRepository.cs" />
+    <Compile Include="Repositories\telaXtipoPrendaRepository.cs" />
+    <Compile Include="Repositories\TipoPrendaRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
     <Compile Include="Scheduler.cs" />
     <Compile Include="Sugerencias.cs" />
     <Compile Include="TipoPrenda.cs" />

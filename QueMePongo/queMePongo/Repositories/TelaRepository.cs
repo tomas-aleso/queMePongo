@@ -1,25 +1,21 @@
 ﻿using System;
 using QueMePongo;
+using System.Linq;
 
 namespace queMePongo.Repositories
 {
     public class TelaRepository
     {
-        public void Insert(Tela tela, DB context)
+        public int Insert(Tela tela, DB context)
         {
-            context.telas.Add(tela);
-            context.SaveChanges();
-            Console.WriteLine($"\nTela {tela.id_tela} - {tela.descripcion} creado!");
-        }
-
-        public void Update(Tela tela, DB context)
-        {
-
-        }
-
-        public void Delete(int telaId)
-        {
-
+            if (context.telas.Any(c => c.descripcion == tela.descripcion))
+            { }
+            else
+            {
+                context.telas.Add(tela);
+                context.SaveChanges();
+            }
+            return (context.telas.Single(b => b.descripcion == tela.descripcion)).id_tela;
         }
     }
 }

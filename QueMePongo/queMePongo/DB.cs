@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using queMePongo.Repositories;
 
 namespace QueMePongo
 {
@@ -18,7 +19,11 @@ namespace QueMePongo
         public DbSet<Atuendo> atuendos { get; set; }
         public DbSet<TipoPrenda> tipoprendas { get; set; }
         public DbSet<Tela> telas { get; set; }
-
+        public DbSet<guardarropaXprendaRepository> guardarropaXprendaRepositories { get; set; }
+        public DbSet<guardarropaXusuarioRepository> guardarropaXusuarioRepositories { get; set; }
+        public DbSet<prendaXatuendoRepository> prendaXatuendoRepositories { get; set; }
+        public DbSet<sugerenciaXeventoRepository> sugerenciaXeventoRepositories { get; set; }
+        public DbSet<telaXtipoPrendaRepository> telaXtipoPrendaRepositories { get; set; }
         public DB() : base(nameOrConnectionString: "heroku")
         {
 

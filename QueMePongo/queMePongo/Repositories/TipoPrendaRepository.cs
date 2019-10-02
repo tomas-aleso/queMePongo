@@ -1,5 +1,6 @@
 ﻿using System;
 using QueMePongo;
+using System.Linq;
 
 namespace queMePongo.Repositories
 {
@@ -7,19 +8,24 @@ namespace queMePongo.Repositories
     {
         public void Insert(TipoPrenda tipoPrenda, DB context)
         {
-            context.tipoprendas.Add(tipoPrenda);
-            context.SaveChanges();
-            Console.WriteLine($"\nTipo de prenda {tipoPrenda.id_tipoPrenda} - {tipoPrenda.descripcion} creado!");
-        }
-
-        public void Update(TipoPrenda tipoPrenda, DB context)
-        {
-
-        }
-
-        public void Delete(int tipoprendaId)
-        {
-
+            if(context.tipoprendas.Any(c => c.descripcion == tipoPrenda.descripcion))
+            {}
+            else
+            {
+                context.tipoprendas.Add(tipoPrenda);
+                context.SaveChanges();
+                int idPrenda = context.tipoprendas.Single(b => b.descripcion == tipoPrenda.descripcion).id_tipoPrenda;
+                foreach (String s in tipoPrenda.tiposDeTelaPosibles)
+                {
+                    Tela t = new Tela();
+                    t.descripcion = s;
+                    TelaRepository tr = new TelaRepository();
+                    telaXtipoPrendaRepository ttpr = new telaXtipoPrendaRepository();
+                    ttpr.id_tela= tr.Insert(t, context);
+                    ttpr.id_tipoprenda = idPrenda;
+                    context.telaXtipoPrendaRepositories.Add(ttpr);
+                }
+            }
         }
     }
 }
