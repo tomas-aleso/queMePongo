@@ -55,6 +55,12 @@ namespace QueMePongo
             {
                 var json = System.IO.File.ReadAllText(@"../../datos.json");
                 List<TipoPrenda> listaPrendas = JsonConvert.DeserializeObject<JObject>(json).Value<JArray>("tipoDePrenda").ToObject<List<TipoPrenda>>();
+                TipoPrendaRepository tpr = new TipoPrendaRepository();
+                DB context = new DB();
+                foreach(TipoPrenda p in listaPrendas)
+                {
+                    tpr.Insert(p, context);
+                }
                 return listaPrendas;
             }
             catch (Exception e)
