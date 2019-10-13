@@ -53,6 +53,7 @@ namespace QueMePongo
             fechaNotificacion = fechaIni;
             fechaInicioPrendas = fechaIniPrendas;
             fechaFinPrendas = fechaFinPrenda;
+            id_atuendo = -1;
             id_usuario = u.id_usuario;
             tipoEvento = tipoEvent;
             Scheduler sched = Scheduler.getInstance();

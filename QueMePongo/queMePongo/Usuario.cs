@@ -26,14 +26,14 @@ namespace QueMePongo
         [Column("tipodeusuario")]
         public int tipoDeUsuario { get; set; }
 
-        [NotMapped]
-        public List<Evento> eventosDeUsuario { get; set; }
+        //[NotMapped]
+        //public List<Evento> eventosDeUsuario { get; set; }
 
         public List<Guardarropa> guardarropas = new List<Guardarropa>();
 
         public List<Evento> eventos = new List<Evento>();
 
-        public virtual ICollection<Guardarropa> Guardarropas { get; set; }
+        //public virtual ICollection<Guardarropa> Guardarropas { get; set; }
 
         [NotMapped]
         public TipoUsuario tipoUsuario { get; set; }
@@ -51,6 +51,10 @@ namespace QueMePongo
         {
             this.tipoUsuario = tu;
             tipoDeUsuario = tu.Tipo;
+            DB context = new DB();
+            UsuarioRepository ur = new UsuarioRepository();
+            ur.Update(this,context);
+
         }
 
         public Usuario() { }
@@ -93,27 +97,18 @@ namespace QueMePongo
 
         }
 
-        public void compartirGuardarropa(Usuario usuario, Guardarropa guardarropaACompartir)
+        public void compartirGuardarropa(String usuario, int guardarropaACompartir)
         {
-            if (Object.ReferenceEquals(this.tipoUsuario.GetType(), usuario.tipoUsuario.GetType()))
+            UsuarioRepository user = new UsuarioRepository();
+            DB context = new DB();
+            if (user.tipoUsuario(usuario,context)==this.tipoDeUsuario)
             {
-                usuario.agregarGaurdarropaCompartido(guardarropaACompartir);
+                user.agregarGaurdarropaCompartido(guardarropaACompartir,usuario,context);
             }
             else
             {
                 throw new ArgumentException("los usuarios son de distinto tipo");
             }
-        }
-
-        public void agregarGaurdarropaCompartido(Guardarropa guardarropaCompartido)
-        {
-            guardarropaCompartido.usuariosCompartidos.Add(this);
-            guardarropas.Add(guardarropaCompartido);
-            DB context = new DB();
-            guardarropaXusuarioRepository gur = new guardarropaXusuarioRepository();
-            gur.id_guardarropa = guardarropaCompartido.id_guardarropa;
-            gur.id_usuario = id_usuario;
-            context.guardarropaXusuarioRepositories.Add(gur);
         }
 
         public List<Atuendo> ObtenerSugerencias(Evento even)
@@ -159,11 +154,14 @@ namespace QueMePongo
                 Console.WriteLine("");
             }
         }
-
+        /* false para no agregar el evento en Db y true para si agregarlo*/
         public void crearEvento(DateTime fechaIni, DateTime fechaFinP, DateTime fechaIniP, String lugar, String descripcion, int tipoEvento)
         {
-            Evento even = new Evento(lugar, descripcion, this, fechaIni, fechaIniP, fechaFinP, usuario, tipoEvento);
+            Evento even = new Evento(lugar, descripcion, this, fechaIni, fechaIniP, fechaFinP, this.usuario, tipoEvento);
             eventos.Add(even);
+            DB context = new DB();
+            EventoRepository er = new EventoRepository();
+            er.Insert(even,context);
             Console.WriteLine("Se ha creado el evento");
         }
 
@@ -174,6 +172,9 @@ namespace QueMePongo
 
                 if (lugar == a.lugar)
                 {
+                    DB context = new DB();
+                    EventoRepository er = new EventoRepository();
+                    er.Delete(a.id_evento, context);
                     eventos.Remove(a);
                     Console.WriteLine("Evento eliminado");
                     break;
@@ -185,8 +186,16 @@ namespace QueMePongo
         {
             List<Atuendo> atuendos = new List<Atuendo>();
             atuendos = this.ObtenerSugerencias(even);
+            DB context = new DB();
+            EventoRepository er = new EventoRepository();
+            er.InsertSugerencias(even, atuendos, context);
+        }
 
-
+        public void seleccionarAtuendo()
+        {
+            //DB context = new DB();
+            //EventoRepository er = new EventoRepository();
+            //er.update(evento, context);
             /*
             Console.WriteLine("Indique el numero de sugerencia que quiere seleccionar:");
 
@@ -197,22 +206,24 @@ namespace QueMePongo
             if (atuendos[opcion].validarAtuendo(even))
             {
                 foreach (Prenda p in atuendos[opcion].prendas)
-                {
-                    p.eventos.Add(even);
-                    Console.WriteLine("Ha elegido su atuendo Correctamente");
-                    calificarAtuendo(atuendos[opcion]);
-                }
+            {
+                p.eventos.Add(even);
+                 Console.WriteLine("Ha elegido su atuendo Correctamente");
+                calificarAtuendo(atuendos[opcion]);
+            }
             }
             else
             {
-                Console.WriteLine("El atuendo que eligio ya esta en uso en ese periodo de tiempo, elija otro");
-                this.elegirAtuendo(even);
+             Console.WriteLine("El atuendo que eligio ya esta en uso en ese periodo de tiempo, elija otro");
+             this.elegirAtuendo(even);
             }*/
-
+            //
         }
 
         public void calificarAtuendo(Atuendo atuendo) // no se verifica datos ingresados ya que proximamente se hara con una interfaz
         {
+            DB context = new DB();
+            PrendaRepository pr = new PrendaRepository();
             Console.WriteLine("Desea calificar el atuendo y/n");
             String str = Console.ReadLine();
             if (str == "y") {
@@ -220,7 +231,11 @@ namespace QueMePongo
                 String puntuacion = Console.ReadLine();
 
                 int punt = int.Parse(puntuacion);
-                atuendo.prendas.ForEach(p => p.calificar(punt));
+                foreach(Prenda p in atuendo.prendas)
+                {
+                    p.calificar(punt);
+                    pr.Update(p, context);
+                }
             }
         }
 

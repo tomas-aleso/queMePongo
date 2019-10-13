@@ -20,34 +20,33 @@ namespace QueMePongo
         public String nombreGuardarropas { get; set; }
 
         [Column("id_duenio")]
-        public int id_duenio { get; set; }
+        public int duenio { get; set; }
 
-        [NotMapped]
-        public Usuario dueño { get; set; }
+        //public virtual ICollection<Usuario> Usuarios { get; set; }
 
-        public virtual ICollection<Usuario> Usuarios { get; set; }
-
-        public virtual ICollection<Prenda> Prendas { get; set; }
+        //public virtual ICollection<Prenda> Prendas { get; set; }
 
         public List<Prenda> prendas = new List<Prenda>();
 
-        public List<Usuario> usuariosCompartidos = new List<Usuario>();
+        public List<int> usuariosCompartidos = new List<int>();
 
         public Guardarropa(Usuario user, String nombreGuardarropa)
         {
-            dueño = user;
             usuariosCompartidos = null;
             nombreGuardarropas = nombreGuardarropa;
-            id_duenio = user.id_usuario;
+            duenio = user.id_usuario;
         }
 
         public Guardarropa() { }
 
-        public void crearPrenda(TipoPrenda tipoDePrenda, String tela, String colorPrincipal, String colorSecundario, Usuario user)
+        public void crearPrenda(TipoPrenda tipoDePrenda, Tela tela, String colorPrincipal, String colorSecundario, Usuario user)
         {
-            if (cumpleRequisitos(tipoDePrenda, tela, colorPrincipal, colorSecundario, user))
+            if (cumpleRequisitos(tipoDePrenda, tela.descripcion, colorPrincipal, colorSecundario, user))
             {
+                DB context = new DB();
+                PrendaRepository pr = new PrendaRepository();
                 Prenda value = new Prenda(tipoDePrenda, tela, colorPrincipal, colorSecundario);
+                pr.Insert(value,context,id_guardarropa);
                 prendas.Add(value);
                 Console.WriteLine("Prenda creada");
             }
@@ -85,6 +84,9 @@ namespace QueMePongo
             {
                 if (prenda == a)
                 {
+                    DB context = new DB();
+                    PrendaRepository gr = new PrendaRepository();
+                    gr.Delete(a.id_prenda, context);
                     prendas.Remove(a);
                     Console.WriteLine("Prenda eliminada");
                     break;

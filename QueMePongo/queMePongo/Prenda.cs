@@ -35,11 +35,11 @@ namespace QueMePongo
 
         public List<Evento> eventos = new List<Evento>();
 
-        public virtual ICollection<Guardarropa> Guardarropas { get; set; }
+       // public virtual ICollection<Guardarropa> Guardarropas { get; set; }
 
-        public virtual ICollection<TipoPrenda> TiposPrendas { get; set; }
+        //public virtual ICollection<TipoPrenda> TiposPrendas { get; set; }
 
-        public virtual ICollection<Atuendo> Atuendos { get; set; }
+        //public virtual ICollection<Atuendo> Atuendos { get; set; }
 
         public Prenda() { }
 
@@ -55,11 +55,13 @@ namespace QueMePongo
 
         //public Atuendo atuendo { get; set; }
 
-        public Prenda(TipoPrenda tipoP, String tel, String cp, String cs)
+        public Prenda(TipoPrenda tipoP, Tela tel, String cp, String cs)
         {
             if (cp == cs) throw new ArgumentException("el color principal no puede ser igual que el secundario");
             tipo = tipoP;
-            tela = tel;
+            tipoPrenda = tipoP.id_tipoPrenda;
+            tela = tel.descripcion;
+            id_tela =tel.id_tela;
             colorPrincipal = cp;
             colorSecundario = cs;
             calificacion = 0;
