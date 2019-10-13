@@ -1,12 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using QueMePongo;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace queMePongo.Repositories
 {
+    [Table("guardarropaXprenda")]
     public class guardarropaXprendaRepository
     {
+        [Key]
+        [Column("id_guardarropaXprenda")]
+        public int id_guardarropaXprenda { get; set; }
+
+        [Column("id_prenda")]
+        public int id_prenda { get; set; }
+
+        [Column("id_guardarropa")]
+        public int id_guardarropa { get; set; }
+        public guardarropaXprendaRepository() { }
     }
 }

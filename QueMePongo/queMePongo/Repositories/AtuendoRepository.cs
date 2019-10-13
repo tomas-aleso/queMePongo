@@ -1,5 +1,9 @@
 ﻿using System;
 using QueMePongo;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace queMePongo.Repositories
 {
@@ -22,9 +26,31 @@ namespace queMePongo.Repositories
             context.SaveChanges();
         }
 
-        public void Delete(int atuendoId)
+        public void Delete(int atuendoId, DB context)
         {
+            Atuendo g = new Atuendo();
+            g = context.atuendos.Single(b => b.id_atuendo == atuendoId);
+            List<prendaXatuendoRepository> gur = new List<prendaXatuendoRepository>();
+            gur = context.prendaXatuendoRepositories.Where(u => u.id_atuendo == atuendoId).ToList();
+            foreach(prendaXatuendoRepository gu in gur)
+            {
+                context.prendaXatuendoRepositories.Remove(gu);
+            }
+            context.atuendos.Remove(g);
+            context.SaveChanges();
+        }
 
+        public Atuendo loguing(int atuendoId, DB context)
+        {
+            Atuendo g = new Atuendo();
+            List<prendaXatuendoRepository> gur = new List<prendaXatuendoRepository>();
+            gur = context.prendaXatuendoRepositories.Where(u => u.id_atuendo == atuendoId).ToList();
+            foreach(prendaXatuendoRepository p in gur)
+            {
+                PrendaRepository per = new PrendaRepository();
+                g.prendas.Add(per.loguing(p.id_prenda,context));
+            }
+            return g;
         }
     }
 }
