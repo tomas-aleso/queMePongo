@@ -36,7 +36,7 @@ namespace QueMePongo
         [Column("id_usuario")]
         public int id_usuario { get; set; }
 
-        [Column("tipoEvento")]
+        [Column("tipoevento")]
         public int tipoEvento { get; set; }
 
         [NotMapped]
