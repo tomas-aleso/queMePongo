@@ -64,6 +64,7 @@ namespace QueMePongo
 
                 var evento = new Evento("UTN", "EntregaTP", usuario1, new DateTime(2018, 10, 5, 7, 45, 0), new DateTime(2018, 10, 5, 7, 45, 0), new DateTime(2018, 10, 5, 7, 45, 0), "evento1", 1);
                 //Falta crear un atuendo y asignarle el id al atributo id_atuendo de evento
+                // no hace falta crear un atuendo para el evento sino no tendria sentido hacer lo de sugerencias por evento porque la elige cuando crea el evento
                 EventoRepo.Insert(evento, context);
 
                 Helper sist = new Helper();
