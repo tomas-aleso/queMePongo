@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace queMePongo.Repositories
 {
-    [Table("guardarropaXprenda")]
+    [Table("guardarropaxprenda")]
     public class guardarropaXprendaRepository
     {
         [Key]
-        [Column("id_guardarropaXprenda")]
+        [Column("id_guardarropaxprenda")]
         public int id_guardarropaXprenda { get; set; }
 
         [Column("id_prenda")]

@@ -23,6 +23,10 @@ namespace QueMePongo
 
                 context.limpiarDB();
 
+                var telaDePrueba = new Tela();
+                telaDePrueba.descripcion = "Seda";
+                TelaRepo.Insert(telaDePrueba, context);
+
                 TipoPrenda tp1 = new TipoPrenda();
                 tp1.descripcion = "jean";
                 tp1.categoria = "torso";
@@ -42,8 +46,7 @@ namespace QueMePongo
                 TipoPrendaRepo.Insert(tp1, context);
                 TipoPrendaRepo.Insert(tp2, context);
 
-                var tela = context.telas.Single(u => u.id_tela == 1);
-
+                var tela = context.telas.Single(u => u.id_tela == 17);
 
                 var usuario1 = new Usuario("usuario1", new Gratuito(), "pass");
                 UsuarioRepo.Insert(usuario1, context);
@@ -56,10 +59,11 @@ namespace QueMePongo
 
 
                 Prenda p = new Prenda(tp1, tela, "rojo", "amarillo");
-                PrendasRepo.Insert(p, context,guard.id_guardarropa);
+                PrendasRepo.Insert(p, context, guard.id_guardarropa);
 
 
                 var evento = new Evento("UTN", "EntregaTP", usuario1, new DateTime(2018, 10, 5, 7, 45, 0), new DateTime(2018, 10, 5, 7, 45, 0), new DateTime(2018, 10, 5, 7, 45, 0), "evento1", 1);
+                //Falta crear un atuendo y asignarle el id al atributo id_atuendo de evento
                 EventoRepo.Insert(evento, context);
 
                 Helper sist = new Helper();

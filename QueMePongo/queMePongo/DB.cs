@@ -87,7 +87,7 @@ namespace QueMePongo
             clear(prendas);
             clear(atuendos);
             clear(tipoprendas);
-            clear(telas);
+            //clear(telas);
         }
     }
 

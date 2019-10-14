@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using queMePongo.Repositories;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,12 +36,6 @@ namespace QueMePongo
 
         public List<Evento> eventos = new List<Evento>();
 
-       // public virtual ICollection<Guardarropa> Guardarropas { get; set; }
-
-        //public virtual ICollection<TipoPrenda> TiposPrendas { get; set; }
-
-        //public virtual ICollection<Atuendo> Atuendos { get; set; }
-
         public Prenda() { }
 
         public String tela;
@@ -51,9 +46,8 @@ namespace QueMePongo
         [NotMapped]
         public TipoPrenda tipo;
 
-        //public Guardarropa guardarropa { get; set; }
-
-        //public Atuendo atuendo { get; set; }
+        [NotMapped]
+        public guardarropaXprendaRepository gxp { get; set; }
 
         public Prenda(TipoPrenda tipoP, Tela tel, String cp, String cs)
         {
