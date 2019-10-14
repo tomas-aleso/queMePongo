@@ -54,6 +54,7 @@ namespace QueMePongo
             fechaInicioPrendas = fechaIniPrendas;
             fechaFinPrendas = fechaFinPrenda;
             id_atuendo = -1;//Esto se deberia asignar en el program despues de crear un atuendo
+            //- no, porque lo necesito para saber si el programa va a tener que buscar un atuendo, si esta en -1 no tengo que buscar un atuendo en la tabla atuendo
             id_usuario = u.id_usuario;
             tipoEvento = tipoEvent;
             Scheduler sched = Scheduler.getInstance();
