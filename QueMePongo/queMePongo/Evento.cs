@@ -63,7 +63,7 @@ namespace QueMePongo
         }
 
         public Evento() { }
-
+        
         public void ejecutarEvento()
         {
             user.elegirAtuendo(this);
